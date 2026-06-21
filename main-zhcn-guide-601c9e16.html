@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ayx · 日常查询与对照说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            color: #1e2a3a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        a:hover {
+            border-bottom-color: #2563eb;
+            color: #1d4ed8;
+        }
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #152b44 100%);
+            color: #eef3f9;
+            padding: 3rem 1.5rem 2.8rem;
+            text-align: center;
+        }
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 0.4rem;
+            opacity: 0.88;
+        }
+        .hero .meta-tag {
+            display: inline-block;
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.08);
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            color: #b2c9e0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem 3rem;
+            width: 100%;
+            flex: 1;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 2px solid #dce3ed;
+            display: inline-block;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.04);
+            border: 1px solid #e9edf2;
+            transition: box-shadow 0.2s, transform 0.1s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.03);
+            transform: translateY(-3px);
+        }
+        .card h3 {
+            font-weight: 500;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: #16324b;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #33475a;
+        }
+        .desc-block {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2.2rem;
+            border: 1px solid #e6ecf3;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .desc-block p {
+            margin-bottom: 0.9rem;
+        }
+        .desc-block p:last-child {
+            margin-bottom: 0;
+        }
+        .faq-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2rem;
+            margin: 2rem 0 1.8rem;
+        }
+        .faq-item {
+            border-left: 3px solid #2563eb;
+            padding-left: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            font-size: 0.98rem;
+            color: #102539;
+            margin-bottom: 0.1rem;
+        }
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #3d5269;
+        }
+        .footer-links {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #dbe1eb;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .footer-links small {
+            color: #667c92;
+            font-size: 0.85rem;
+        }
+        .footer-links .link-group a {
+            margin-left: 1.2rem;
+            font-size: 0.9rem;
+        }
+        .footer-links .link-group a:first-child {
+            margin-left: 0;
+        }
+        .highlight-ref {
+            background: #eef3fa;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 450;
+        }
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .faq-summary {
+                grid-template-columns: 1fr;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-links .link-group a {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+            .desc-block {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>日常查询 · 对照与延伸</h1>
+            <p>围绕 <span class="highlight-ref" style="background:rgba(37,99,235,0.12);color:#d6e6ff;">ayx</span> 整理的信息入口，适合快速查阅、比对不同来源的表述。</p>
+            <p style="font-size:1rem; opacity:0.7; margin-top:0.8rem;">指向明确，不堆砌，不诱导。</p>
+            <span class="meta-tag">基于公开内容整理</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 优势区 / 特点卡片 -->
+        <h2 class="section-title">查阅特点</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>多源头对照</h3>
+                <p>在查询时，可参考不同页面的描述方式，便于形成自己的理解。ayx 保持索引结构清晰。</p>
+            </div>
+            <div class="card">
+                <h3>延伸阅读</h3>
+                <p>由单一查询词延伸至相关说明，节省反复搜索的时间。所有链接以实用为准。</p>
+            </div>
+            <div class="card">
+                <h3>轻量说明</h3>
+                <p>每段内容力求精炼，避免冗长模糊的表述，方便快速定位关键信息。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：日常查询与对照角度 -->
+        <div class="desc-block">
+            <p>在日常信息检索中，经常需要快速核对不同页面对于同一关键词的表述。本页以 <strong>ayx</strong> 作为线索，整理了几个常见的查阅场景：从基础释义到上下文用法，从简短说明到关联内容。你可以直接通过下方链接进入对应页面进行对比。</p>
+            <p>举例来说，当你在多个页面看到相似但不完全一致的描述时，保持开放心态，留意信息来源与侧重点。这里提供的 <a href="https://main-zhcn-ayx.com">ayx</a> 页面可作为其中一个参考基准，与其他资料对照阅读，有助于形成更立体的认知。</p>
+            <p>另外也建议结合上下文语境，而非孤立地理解某个词语。延伸阅读时，注意区分概括性说明与具体场景描述，两者各有价值。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <h2 class="section-title" style="margin-top:0.5rem;">常见疑问摘要</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <div class="q">▸ ayx 适合哪些查询场景？</div>
+                <div class="a">可用于日常快速检索、对比不同来源的表述，或作为延伸阅读的起点。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">▸ 页面内容是否保持更新？</div>
+                <div class="a">该页面为静态说明页，指向的外部页面可能随时间调整，建议以实际内容为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">▸ 如何利用对照阅读？</div>
+                <div class="a">打开 ayx 页面及另外一到两个相关页面，并排浏览，注意用词、定义范围和举例的差异。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">▸ 是否有延伸推荐？</div>
+                <div class="a">可在页面底部找到相关链接，也可自行搜索组合关键词，获取更多角度的信息。</div>
+            </div>
+        </div>
+
+        <!-- 底部区域 + 链接 -->
+        <div class="footer-links">
+            <small>本页仅为信息整理，内容供参考 · 请自行核实</small>
+            <div class="link-group">
+                <a href="https://main-zhcn-ayx.com">ayx</a>
+                <a href="#" style="opacity:0.65;cursor:default;">更多资源</a>
+                <a href="#" style="opacity:0.65;cursor:default;">说明</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
